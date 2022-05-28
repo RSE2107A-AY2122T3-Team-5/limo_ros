@@ -10,12 +10,11 @@ def handle_process_msg(request):
     if request.get_status == 0:
         print('Requesting status for vehicle state:\n')
         if Num.vehicle_state == 0:
-            HumanString = "System Normal"
+            status_string = "VEHICLE_STATE = System Normal"
         elif Num.vehicle_state == 2:
-            HumanString = "System Exception"
+            status_string = "VEHICLE_STATE = System Exceptional"
 
-        status_string = "VEHICLE_STATE = %s"% HumanString
-
+      
     elif request.get_status == 1:
         print('Requesting status for control mode:\n')
         if Num.control_mode == 0:
