@@ -7,10 +7,11 @@ import rospy
 def Limo_status_cilent():
     rospy.init_node('limo_status_cilent_node')
     Get_Limo_Status = rospy.ServiceProxy('Get_Limo_Status', GetLimoStatus)
-    
     rate = rospy.Rate(1)
+
     for val in range(5):
         response = Get_Limo_Status(val)
+        
         if response == 0:
             pub0 = rospy.Publisher('/limo_ros/vehicle_state', String, queue_size=10)
         elif response == 1:
